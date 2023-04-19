@@ -1,0 +1,22 @@
+version: '3'
+services:
+  api:
+    build: ./app
+    container_name: api
+    environment:
+      - HOST=
+      - PYTHONUNBUFFERED=True
+      - PIP_ROOT_USER_ACTION=ignore
+    restart: on-failure
+    volumes:
+      - ./app:/app
+    ports:
+      - ""
+    command: python3 main.py
+
+  webserver:
+    image: dceoy/nginx-autoindex
+    volumes:
+      - ./app/storage/:/var/lib/nginx/html/:ro
+    ports:
+      - ""

@@ -1,0 +1,5 @@
+import os
+
+headers = {'Content-type': 'application/json; charset=UTF-8'}
+API_PORT =
+API_URL_FILES = f"http://{os.environ['HOST']}/"
